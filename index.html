@@ -1442,10 +1442,10 @@ function setLang(l) {
       hdr.classList.remove('hide');
     }
 
-    /* dark-mode when over contacts section */
+    /* dark-mode from the contacts section to the end of the page
+       (contacts, the wave divider and the footer are all dark) */
     if (contactsEl) {
-      const r = contactsEl.getBoundingClientRect();
-      hdr.classList.toggle('dark-mode', r.top < 66 && r.bottom > 0);
+      hdr.classList.toggle('dark-mode', contactsEl.getBoundingClientRect().top < 66);
     }
 
     /* scroll-top button */
