@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SmartCredit — Умные финансовые решения</title>
-  <meta name="description" content="SmartCredit — профессиональная помощь с кредитами, кредитным скором и финансовыми решениями в США."/>
+  <title>SmartCredit 365 — Умные финансовые решения</title>
+  <meta name="description" content="SmartCredit 365 — профессиональная помощь с кредитами, кредитным скором и финансовыми решениями в США."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
@@ -16,6 +16,8 @@
     --blue-deep: #0E3C8C;
     --blue-soft: #EAF1FD;
     --blue-mid:  #5B8DEF;
+    --brand-green:     #1FA63A;
+    --brand-green-mid: #34C759;
     --green:     #1E63D8;
     --green-dk:  #1450B8;
     --green-deep:#0E3C8C;
@@ -92,7 +94,7 @@
   .pc-big { font-size: clamp(40px,4.4vw,54px); }
   html { scroll-behavior: smooth; }
   html { overflow-x: hidden; }
-  body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; font-size: 16px; overflow-x: hidden; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; font-size: 16px; }
   a { text-decoration: none; color: inherit; }
   button { cursor: pointer; border: none; font-family: inherit; }
   ::-webkit-scrollbar { display: none; }
@@ -131,6 +133,19 @@
   .logo-icon { width: 38px; height: 38px; background: linear-gradient(135deg, var(--blue), var(--blue-deep)); border-radius: 11px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(30,99,216,.35); flex-shrink: 0; }
   .logo-icon svg { width: 20px; height: 20px; color: #fff; }
   .logo span { color: var(--blue); }
+  /* ─── BRAND WORDMARK — Smart (blue) · Credit (green) · 365 (blue, small) ─── */
+  .logo-tx { white-space: nowrap; }
+  .b-sm  { color: var(--blue); }
+  .b-cr  { color: var(--brand-green); }
+  .b-365 { color: var(--blue); font-size: .56em; font-weight: 700; vertical-align: bottom; margin-left: 4px; letter-spacing: .02em; }
+  .logo .b-sm  { color: var(--blue); }
+  .logo .b-cr  { color: var(--brand-green); }
+  .logo .b-365 { color: var(--blue); }
+  /* dark contexts: lift Smart/365 to a brighter blue, keep Credit green */
+  .header.dark-mode .logo .b-sm, .header.dark-mode .logo .b-365 { color: var(--blue-mid); }
+  .header.dark-mode .logo .b-cr { color: var(--brand-green-mid); }
+  .fb .logo .b-sm, .fb .logo .b-365 { color: var(--blue-mid); }
+  .fb .logo .b-cr { color: var(--brand-green-mid); }
 
   /* ─── WAVE DIVIDERS ───────────────────────────── */
   .wave-div { display: block; overflow: hidden; line-height: 0; margin: 0; padding: 0; }
@@ -156,6 +171,127 @@
   .lang-btn.active { background: var(--blue); color: #fff; box-shadow: 0 2px 8px rgba(30,99,216,.4); }
   .nav-cta { padding: 10px 22px; background: linear-gradient(120deg, #1E63D8, #0E3C8C); color: #fff; border-radius: 24px; font-size: 14px; font-weight: 600; box-shadow: 0 4px 14px rgba(30,99,216,.35); transition: all var(--t); }
   .nav-cta:hover { opacity: .9; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(30,99,216,.4); }
+  /* highlighted "$1 credit report" nav item */
+  .nav-links a.nav-report { color: var(--brand-green); font-weight: 700; white-space: nowrap; }
+  .nav-links a.nav-report:hover { background: rgba(31,166,58,.1); color: var(--brand-green); }
+  .header.dark-mode .nav-links a.nav-report { color: var(--brand-green-mid); }
+
+  /* ─── VIDEO SECTION — pinned (sticky) horizontal gallery ─── */
+  .video { background: #F0F7FF; padding: 0; position: relative; }
+  .video-pin { height: 400vh; position: relative; }
+  .video-sticky {
+    position: sticky; top: 0; height: 100vh; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .video .shead { margin: 0; padding: clamp(40px,6vh,76px) 28px clamp(12px,2vh,20px); flex: 0 0 auto; }
+  .video-hint {
+    display: inline-flex; align-items: center; gap: 8px; margin-top: 14px;
+    font-size: 13.5px; font-weight: 600; color: var(--blue);
+    background: rgba(30,99,216,.08); border: 1.5px solid rgba(30,99,216,.22);
+    padding: 8px 18px; border-radius: 999px;
+  }
+  .video-hint svg { width: 16px; height: 16px; animation: nexthop 2.4s ease-in-out infinite; }
+  .video-hint .hint-m { display: none; }
+  .video-track {
+    flex: 1 1 auto; display: flex; align-items: center;
+    gap: clamp(14px,1.6vw,24px); padding: 0 clamp(20px,5vw,80px);
+    will-change: transform;
+  }
+  .vcard {
+    position: relative; flex: 0 0 auto;
+    height: min(52vh, 480px); aspect-ratio: 9 / 16;
+    border-radius: 18px; overflow: hidden;
+    background: linear-gradient(160deg, #1b3a6b, #0a1628);
+    background-size: cover; background-position: center; background-repeat: no-repeat;
+    box-shadow: var(--sh); border: 1px solid var(--border);
+    transition: box-shadow var(--t);
+  }
+  .vcard:hover { box-shadow: var(--sh-lg); }
+  .video-progress {
+    flex: 0 0 auto; height: 4px; width: min(420px, 70vw);
+    margin: clamp(14px,2.2vh,24px) auto clamp(20px,3vh,32px);
+    background: rgba(30,99,216,.14); border-radius: 999px; overflow: hidden;
+  }
+  .video-progress span { display: block; height: 100%; width: 0%; background: linear-gradient(90deg, var(--blue), var(--brand-green)); border-radius: 999px; transition: width .08s linear; }
+
+  /* video cards act as clickable previews (the video opens in the lightbox) */
+  .vcard { cursor: pointer; }
+  .vthumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; z-index: 1; }
+  .vplay {
+    position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(180deg, rgba(10,22,40,.05), rgba(10,22,40,.28));
+    transition: opacity .25s;
+  }
+  .vplay-btn {
+    width: 58px; height: 58px; border-radius: 50%;
+    background: rgba(255,255,255,.92); backdrop-filter: blur(2px);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,.35); transition: transform .25s;
+  }
+  .vplay-btn svg { width: 22px; height: 22px; margin-left: 3px; color: var(--blue); }
+  .vcard:hover .vplay-btn { transform: scale(1.08); }
+
+  /* ─── LIGHTBOX PLAYER ─────────────────────────── */
+  .vlb {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 1000; display: none;
+    align-items: center; justify-content: center; padding: 24px;
+    background: rgba(8,14,26,0); transition: background .32s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .vlb.open { display: flex; }
+  .vlb.show { background: rgba(8,14,26,.86); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+  .vlb-stage {
+    width: min(94vw, calc(86vh * 9 / 16)); aspect-ratio: 9 / 16;
+    border-radius: 16px; background: #000; overflow: hidden;
+    box-shadow: 0 30px 90px rgba(0,0,0,.55); will-change: transform, opacity;
+  }
+  .vlb-stage iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .vlb-close {
+    position: fixed; top: 18px; right: 18px; z-index: 1001;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.25);
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    opacity: 0; transform: scale(.8); transition: opacity .3s, transform .3s, background .2s;
+  }
+  .vlb-close svg { width: 22px; height: 22px; }
+  .vlb-close:hover { background: rgba(255,255,255,.26); }
+  .vlb.show .vlb-close { opacity: 1; transform: scale(1); }
+  .vlb-nav {
+    position: fixed; top: 50%; z-index: 1001;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.25);
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    opacity: 0; transform: translateY(-50%) scale(.8);
+    transition: opacity .3s, transform .3s, background .2s;
+  }
+  .vlb-prev { left: 18px; }
+  .vlb-next { right: 18px; }
+  .vlb-nav svg { width: 24px; height: 24px; }
+  .vlb-nav:hover { background: rgba(255,255,255,.26); }
+  .vlb.show .vlb-nav { opacity: 1; transform: translateY(-50%) scale(1); }
+
+  /* mobile: drop the pin, use natural horizontal swipe */
+  @media (max-width: 760px) {
+    .video { padding: clamp(56px,9vw,84px) 0; }
+    .video-pin { height: auto; }
+    .video-sticky { position: static; height: auto; overflow: visible; display: block; }
+    .video .shead { padding: 0 22px; }
+    .video-hint .hint-d { display: none; }
+    .video-hint .hint-m { display: inline; }
+    .video-hint svg { animation: none; transform: rotate(-90deg); }
+    .video-track {
+      transform: none !important; overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; padding: 20px clamp(16px,8vw,64px); margin-top: 12px;
+      gap: 16px; scrollbar-width: none; align-items: stretch;
+    }
+    .video-track::-webkit-scrollbar { display: none; }
+    .vcard { height: auto; width: min(76vw, 320px); aspect-ratio: 9 / 16; scroll-snap-align: center; }
+    .video-progress { display: none; }
+    .vlb-nav { width: 42px; height: 42px; }
+    .vlb-prev { left: 8px; }
+    .vlb-next { right: 8px; }
+  }
   .burger { display: none; flex-direction: column; gap: 5px; width: 28px; background: none; padding: 4px; }
   .burger span { display: block; height: 2px; background: var(--text); border-radius: 2px; transition: all var(--t); }
   .mmenu { display: none; position: fixed; top: 66px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 14px 24px 18px; flex-direction: column; gap: 3px; box-shadow: 0 8px 32px rgba(0,0,0,.06); z-index: 99; }
@@ -502,9 +638,17 @@
 
   /* ─── WAVE SCROLLBAR ──────────────────────── */
   .wbar { position: fixed; right: 5px; top: 70px; bottom: 5px; width: 10px; z-index: 201; border-radius: 5px; background: rgba(30,99,216,.08); overflow: hidden; }
-  .wbar-fill { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(180deg, rgba(99,170,255,.9) 0%, var(--blue) 100%); border-radius: 5px; height: 100%; transition: height .15s ease; }
-  .wbar-fill::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,.55); border-radius: 5px; }
-  .wbar-fill::after { display: none; }
+  .wbar-fill { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(180deg, rgba(99,170,255,.95) 0%, var(--blue) 100%); border-radius: 5px; height: 100%; transition: height .15s ease; overflow: hidden; }
+  /* animated water surface */
+  .wbar-fill::before { content: ''; position: absolute; top: -1px; left: -25%; right: -25%; height: 6px; border-radius: 50%; background: rgba(255,255,255,.65); animation: wsurf 2.4s ease-in-out infinite; }
+  .wbar-fill::after { content: ''; position: absolute; top: 2px; left: -25%; right: -25%; height: 5px; border-radius: 50%; background: rgba(255,255,255,.22); animation: wsurf 3.3s ease-in-out infinite reverse; }
+  @keyframes wsurf { 0%,100% { transform: translateX(-8%) } 50% { transform: translateX(8%) } }
+  /* rising bubbles */
+  .wbar-fill i { position: absolute; bottom: 6%; width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,.7); opacity: 0; animation: wbub 2.8s linear infinite; }
+  .wbar-fill i:nth-child(1) { left: 2px; animation-delay: 0s; }
+  .wbar-fill i:nth-child(2) { left: 5px; animation-delay: 1s; width: 2px; height: 2px; }
+  .wbar-fill i:nth-child(3) { left: 3px; animation-delay: 1.9s; }
+  @keyframes wbub { 0% { transform: translateY(0) scale(.6); opacity: 0; } 15% { opacity: .8; } 80% { opacity: .6; } 100% { transform: translateY(-90px) scale(1); opacity: 0; } }
 
   /* ─── REVEAL ──────────────────────────────── */
   .reveal   { opacity: 0; transform: translateY(26px);  transition: opacity .6s ease, transform .6s ease; }
@@ -550,8 +694,8 @@
     /* nav */
     .nav-links, .nav-cta { display: none; }
     .burger { display: flex; }
-    /* hide custom scrollbar — OS scroll handles mobile */
-    .wbar { display: none; }
+    /* water scrollbar — slimmer on mobile (native bar is hidden) */
+    .wbar { top: 60px; right: 4px; width: 7px; }
     /* hero */
     .hero { padding: 80px 20px 48px; }
     .hero-inner { grid-template-columns: 1fr; }
@@ -804,11 +948,13 @@
   <nav class="nav">
     <a href="#" class="logo">
       <img class="logo-img" src="data:image/jpeg;base64,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" alt="SmartCredit"/>
-      Smart<span>Credit</span>
+      <span class="logo-tx"><span class="b-sm">Smart</span><span class="b-cr">Credit</span><span class="b-365">365</span></span>
     </a>
     <ul class="nav-links">
       <li><a href="#services" data-i18n="nav.services">Услуги</a></li>
       <li><a href="#pricing" data-i18n="nav.pricing">Цены</a></li>
+      <li><a href="#video" data-i18n="nav.video">Видео</a></li>
+      <li><a href="https://www.smartcredit.com/join/?pid=24174" target="_blank" rel="noopener" class="nav-report" data-i18n="nav.report">Кредитный репорт за 1$</a></li>
       <li><a href="#contacts" data-i18n="nav.contacts">Контакты</a></li>
     </ul>
     <div class="nav-right">
@@ -823,6 +969,8 @@
   <div class="mmenu" id="mmenu">
     <a href="#services" onclick="closeMenu()" data-i18n="nav.services">Услуги</a>
     <a href="#pricing" onclick="closeMenu()" data-i18n="nav.pricing">Цены</a>
+    <a href="#video" onclick="closeMenu()" data-i18n="nav.video">Видео</a>
+    <a href="https://www.smartcredit.com/join/?pid=24174" target="_blank" rel="noopener" data-i18n="nav.report">Кредитный репорт за 1$</a>
     <a href="#contacts" onclick="closeMenu()" data-i18n="nav.contacts">Контакты</a>
     <a href="#contacts" onclick="closeMenu()" class="mmenu-cta" data-i18n="nav.cta">Консультация</a>
   </div>
@@ -881,7 +1029,7 @@
     <div>
       <div class="hero-badge"><div class="dot"></div><span data-i18n="hero.badge">Финансовые решения в США</span></div>
       <h1 data-i18n-html="hero.title">Улучшите ваш <span class="grad-text">кредитный скор</span> вместе с нами</h1>
-      <p class="hero-sub" data-i18n="hero.sub">SmartCredit — профессиональная помощь с кредитным скором, кредитами и финансовым планированием. Работаем по всей территории США.</p>
+      <p class="hero-sub" data-i18n="hero.sub">SmartCredit 365 — профессиональная помощь с кредитным скором, кредитами и финансовым планированием. Работаем по всей территории США.</p>
       <div class="hero-actions">
         <a href="#contacts" class="btn-p">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 15z"/></svg>
@@ -904,7 +1052,7 @@
                 <div class="mon-url-bar">smartcredit.com/dashboard</div>
               </div>
               <div class="mon-nav">
-                <span class="mon-logo-txt">Smart<b>Credit</b></span>
+                <span class="mon-logo-txt">Smart<b style="color:var(--brand-green-mid)">Credit</b><span class="b-365" style="color:var(--blue-mid)">365</span></span>
                 <div class="mon-nav-links">
                   <span class="mon-nav-active">Dashboard</span>
                   <span>Reports</span>
@@ -966,7 +1114,7 @@
               <div class="phone-app">
                 <div class="hcard">
                   <div class="hcard-top">
-                    <span class="hcard-brand">SmartCredit</span>
+                    <span class="hcard-brand"><span class="b-sm">Smart</span><span class="b-cr">Credit</span><span class="b-365">365</span></span>
                     <span class="hcard-badge">EXCELLENT</span>
                   </div>
                   <div class="score-wrap">
@@ -1171,7 +1319,36 @@
   </div>
 </section>
 
-<!-- Wave: pricing → contacts (navy) -->
+<!-- ══ VIDEO ══════════════════════════════════ -->
+<section class="video" id="video">
+  <div class="video-pin">
+    <div class="video-sticky">
+      <div class="shead c">
+        <div class="section-label"><span class="line"></span><span data-i18n="video.label">Видео</span></div>
+        <h2 class="section-title" data-i18n="video.title">Видео о наших услугах</h2>
+        <p class="section-sub" data-i18n="video.sub">Реальные кейсы, советы и результаты наших клиентов.</p>
+        <div class="video-hint"><span class="hint-d" data-i18n="video.hint">Листайте вниз — видео пролистываются</span><span class="hint-m" data-i18n="video.hint_m">Листайте вбок, чтобы смотреть</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="video-track" id="videoTrack">
+        <div class="vcard" data-id="1201127913"></div>
+        <div class="vcard" data-id="1201127912"></div>
+        <div class="vcard" data-id="1201127915"></div>
+        <div class="vcard" data-id="1201127916"></div>
+        <div class="vcard" data-id="1201127937"></div>
+        <div class="vcard" data-id="1201127938"></div>
+        <div class="vcard" data-id="1201127940"></div>
+        <div class="vcard" data-id="1201127941"></div>
+        <div class="vcard" data-id="1201127965"></div>
+        <div class="vcard" data-id="1201127974"></div>
+        <div class="vcard" data-id="1201127975"></div>
+        <div class="vcard" data-id="1201127981"></div>
+      </div>
+      <div class="video-progress"><span id="videoBar"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Wave: video → contacts (navy) -->
 
 <div class="wave-div" style="background:#F0F7FF">
   <svg viewBox="0 0 1440 90" preserveAspectRatio="none" height="90" xmlns="http://www.w3.org/2000/svg"><path d="M0 0C360 90 720 0 1080 60S1440 90 1440 90H0z" fill="#0A1628"/></svg>
@@ -1243,7 +1420,7 @@
       <div class="fb">
         <a href="#" class="logo">
           <img class="logo-img" src="data:image/jpeg;base64,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" alt="SmartCredit"/>
-          Smart<span>Credit</span>
+          <span class="logo-tx"><span class="b-sm">Smart</span><span class="b-cr">Credit</span><span class="b-365">365</span></span>
         </a>
         <p data-i18n="footer.desc">Профессиональная помощь с кредитным скором и финансовыми решениями в США. Работаем с русскоязычными клиентами.</p>
         <div class="f-soc">
@@ -1278,11 +1455,25 @@
       </div>
     </div>
     <div class="ft-b">
-      <span data-i18n="footer.copy">© 2024 SmartCredit. Все права защищены.</span>
+      <span data-i18n="footer.copy">© 2026 SmartCredit 365. Все права защищены.</span>
       <span>Hollywood, FL · USA</span>
     </div>
   </div>
 </footer>
+
+<!-- ══ VIDEO LIGHTBOX (custom player) ══════════ -->
+<div class="vlb" id="vlb" aria-hidden="true">
+  <button class="vlb-close" id="vlbClose" aria-label="Закрыть">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <button class="vlb-nav vlb-prev" id="vlbPrev" aria-label="Предыдущее видео">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="vlb-nav vlb-next" id="vlbNext" aria-label="Следующее видео">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+  <div class="vlb-stage" id="vlbStage"></div>
+</div>
 
 <div class="toast" id="toast">
   <div class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
@@ -1294,14 +1485,17 @@
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 
+<div class="wbar" id="wbar"><div class="wbar-fill" id="wbarFill"><i></i><i></i><i></i></div></div>
+
 <script>
 // ── i18n ──────────────────────────────────────
 const T = {
   ru: {
-    "nav.services":"Услуги","nav.pricing":"Цены","nav.how":"Как работает","nav.about":"О нас","nav.contacts":"Контакты","nav.cta":"Консультация",
+    "nav.services":"Услуги","nav.pricing":"Цены","nav.how":"Как работает","nav.about":"О нас","nav.contacts":"Контакты","nav.cta":"Консультация","nav.video":"Видео","nav.report":"Кредитный репорт за 1$",
+    "video.label":"Видео","video.title":"Видео о наших услугах","video.sub":"Реальные кейсы, советы и результаты наших клиентов.","video.hint":"Листайте вниз — видео пролистываются","video.hint_m":"Листайте вбок, чтобы смотреть",
     "hero.badge":"Финансовые решения в США",
     "hero.title":"Улучшите ваш <span class=\"grad-text\">кредитный скор</span> вместе с нами",
-    "hero.sub":"SmartCredit — профессиональная помощь с кредитным скором, кредитами и финансовым планированием. Работаем по всей территории США.",
+    "hero.sub":"SmartCredit 365 — профессиональная помощь с кредитным скором, кредитами и финансовым планированием. Работаем по всей территории США.",
     "hero.cta1":"Бесплатная консультация","hero.cta2":"Наши услуги",
     "hero.stat1":"Клиентов помогли","hero.stat2":"Успешных случаев","hero.stat3":"Лет опыта",
     "card.ontime":"Оплата вовремя","card.util":"Утилизация","card.history":"История","card.rating":"Рейтинг",
@@ -1329,20 +1523,21 @@ const T = {
     "step2.title":"Анализ кредитного отчёта","step2.desc":"Запрашиваем и детально изучаем ваш кредитный отчёт из всех трёх бюро.",
     "step3.title":"Индивидуальный план","step3.desc":"Разрабатываем персональную стратегию: оспаривание ошибок, реструктуризация долгов.",
     "step4.title":"Результат и поддержка","step4.desc":"Следим за прогрессом, корректируем план и сопровождаем вас до достижения цели.",
-    "about.label":"О компании","about.title":"SmartCredit — ваш надёжный финансовый партнёр",
+    "about.label":"О компании","about.title":"SmartCredit 365 — ваш надёжный финансовый партнёр",
     "about.p1":"Мы — команда профессионалов с многолетним опытом в сфере кредитования и финансового консультирования. Наша миссия — сделать финансовые возможности доступными для каждого русскоязычного жителя США.",
     "about.p1_1":"Работаем на английском и русском языках","about.p1_2":"Индивидуальный подход к каждому клиенту","about.p1_3":"Прозрачные условия без скрытых комиссий","about.p1_4":"Результаты уже через 30–90 дней",
     "about.badge":"Довольных клиентов","about.rating":"5.0 · Рейтинг клиентов","about.cta":"Связаться с нами",
     "contacts.label":"Контакты","contacts.title":"Свяжитесь с нами","contacts.sub":"Отвечаем быстро в WhatsApp и Telegram. Консультация бесплатно.","contacts.addr_label":"Адрес",
     "c.wa_hint":"Напишите — ответим сразу","c.tg_hint":"Быстрый ответ в мессенджере","c.ig_hint":"Кейсы, советы и отзывы",
     "toast.title":"Отлично!","toast.msg":"Переходим в WhatsApp...",
-    "footer.desc":"Профессиональная помощь с кредитным скором и финансовыми решениями в США.","footer.services":"Услуги","footer.company":"Компания","footer.contact_hd":"Связаться","footer.copy":"© 2024 SmartCredit. Все права защищены."
+    "footer.desc":"Профессиональная помощь с кредитным скором и финансовыми решениями в США.","footer.services":"Услуги","footer.company":"Компания","footer.contact_hd":"Связаться","footer.copy":"© 2026 SmartCredit 365. Все права защищены."
   },
   en: {
-    "nav.services":"Services","nav.pricing":"Pricing","nav.how":"How It Works","nav.about":"About","nav.contacts":"Contact","nav.cta":"Consultation",
+    "nav.services":"Services","nav.pricing":"Pricing","nav.how":"How It Works","nav.about":"About","nav.contacts":"Contact","nav.cta":"Consultation","nav.video":"Videos","nav.report":"Credit Report for $1",
+    "video.label":"Videos","video.title":"Videos About Our Services","video.sub":"Real cases, tips and results from our clients.","video.hint":"Scroll down — the videos slide across","video.hint_m":"Swipe sideways to watch",
     "hero.badge":"Financial Solutions in the USA",
     "hero.title":"Improve your <span class=\"grad-text\">credit score</span> with us",
-    "hero.sub":"SmartCredit provides professional help with credit scores, loans, and financial planning. We serve clients across the entire United States.",
+    "hero.sub":"SmartCredit 365 provides professional help with credit scores, loans, and financial planning. We serve clients across the entire United States.",
     "hero.cta1":"Free Consultation","hero.cta2":"Our Services",
     "hero.stat1":"Clients Helped","hero.stat2":"Success Rate","hero.stat3":"Years of Experience",
     "card.ontime":"On-time Payment","card.util":"Utilization","card.history":"History","card.rating":"Rating",
@@ -1370,14 +1565,14 @@ const T = {
     "step2.title":"Credit Report Analysis","step2.desc":"We request and thoroughly review your credit report from all three bureaus.",
     "step3.title":"Personalized Plan","step3.desc":"We develop a personal strategy: error disputes, debt restructuring, and behavioral advice.",
     "step4.title":"Results & Support","step4.desc":"We track progress, adjust the plan, and support you until your goals are achieved.",
-    "about.label":"About Us","about.title":"SmartCredit — Your Reliable Financial Partner",
+    "about.label":"About Us","about.title":"SmartCredit 365 — Your Reliable Financial Partner",
     "about.p1":"We are a team of professionals with years of experience in lending and financial consulting. Our mission is to make financial opportunities accessible to every Russian-speaking resident of the USA.",
     "about.p1_1":"We work in English and Russian","about.p1_2":"Individual approach to each client","about.p1_3":"Transparent terms with no hidden fees","about.p1_4":"Results in 30–90 days",
     "about.badge":"Satisfied Clients","about.rating":"5.0 · Client Rating","about.cta":"Contact Us",
     "contacts.label":"Contact","contacts.title":"Get in Touch","contacts.sub":"We respond fast on WhatsApp and Telegram. Free consultation.","contacts.addr_label":"Address",
     "c.wa_hint":"Message us — we reply instantly","c.tg_hint":"Quick response in messenger","c.ig_hint":"Cases, tips and reviews",
     "toast.title":"Great!","toast.msg":"Opening WhatsApp...",
-    "footer.desc":"Professional credit score and financial solutions in the USA.","footer.services":"Services","footer.company":"Company","footer.contact_hd":"Contact","footer.copy":"© 2024 SmartCredit. All rights reserved."
+    "footer.desc":"Professional credit score and financial solutions in the USA.","footer.services":"Services","footer.company":"Company","footer.contact_hd":"Contact","footer.copy":"© 2026 SmartCredit 365. All rights reserved."
   }
 };
 
@@ -1477,6 +1672,9 @@ function setLang(l) {
   window.addEventListener('scroll', () => {
     if (!ticking) { requestAnimationFrame(update); ticking = true; }
   }, { passive: true });
+  window.addEventListener('resize', update);
+  window.addEventListener('load', update);
+  update();   // initialise header / water-scrollbar state immediately
 
   /* ── Smooth section background color on scroll ──
      Each section has a data-bg color; we interpolate between them
@@ -1581,8 +1779,8 @@ document.querySelectorAll('.reveal,.reveal-l,.reveal-r,.reveal-s').forEach(el =>
 
 // ── Next-section buttons ───────────────────────
 (function() {
-  const order  = ['home','services','pricing','contacts'];
-  const labels = { home:'Наши услуги', services:'Цены', pricing:'Контакты' };
+  const order  = ['home','services','pricing','video','contacts'];
+  const labels = { home:'Наши услуги', services:'Цены', pricing:'Видео', video:'Контакты' };
   order.slice(0,-1).forEach(id => {
     const sec = document.getElementById(id);
     if (!sec) return;
@@ -1595,6 +1793,153 @@ document.querySelectorAll('.reveal,.reveal-l,.reveal-r,.reveal-s').forEach(el =>
       document.getElementById(nextId).scrollIntoView({ behavior:'smooth', block:'start' });
     });
     sec.appendChild(btn);
+  });
+})();
+
+// ── Pinned horizontal video gallery ───────────
+// The section is pinned with position:sticky over a tall (400vh) track; the
+// videos slide horizontally as a pure function of scroll position. No wheel
+// hijacking → robust to fast / repeated up-down scrolling (no jitter, no lock).
+(function() {
+  const pin   = document.querySelector('.video-pin');
+  const track = document.getElementById('videoTrack');
+  const bar   = document.getElementById('videoBar');
+  if (!pin || !track) return;
+  const mq = window.matchMedia('(max-width: 760px)');
+  let ticking = false;
+  function update() {
+    ticking = false;
+    if (mq.matches) { track.style.transform = ''; if (bar) bar.style.width = '0%'; return; } // mobile: native swipe
+    const dist = pin.offsetHeight - window.innerHeight;
+    const top  = pin.getBoundingClientRect().top;
+    let p = dist > 0 ? (-top / dist) : 0;
+    p = Math.max(0, Math.min(1, p));
+    const max = Math.max(0, track.scrollWidth - track.clientWidth);
+    track.style.transform = 'translate3d(' + (-p * max) + 'px,0,0)';
+    if (bar) bar.style.width = (p * 100) + '%';
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', update);
+  window.addEventListener('load', update);
+  if (mq.addEventListener) mq.addEventListener('change', update);
+  update();
+})();
+
+// ── Custom video player (lightbox) ────────────
+// Cards are previews; tapping one smoothly scales the full video up in the
+// CENTRE of the screen (object-fit:contain → no cropping) and plays it.
+// Background scroll is locked by swallowing scroll events (NOT by changing
+// overflow) so the scroll position, wave-scrollbar and pinned gallery stay put.
+(function() {
+  const lb     = document.getElementById('vlb');
+  const stage  = document.getElementById('vlbStage');
+  const lbX    = document.getElementById('vlbClose');
+  const lbPrev = document.getElementById('vlbPrev');
+  const lbNext = document.getElementById('vlbNext');
+  const cards  = Array.from(document.querySelectorAll('.vcard'));
+  if (!lb || !stage || !cards.length) return;
+
+  const ids = cards.map(c => c.getAttribute('data-id'));
+  const PLAY = '<span class="vplay"><span class="vplay-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>';
+  let idx = 0, closing = false;
+
+  // swallow background scroll while open (without touching overflow / scroll pos)
+  const onStage = t => t instanceof Node && stage.contains(t);
+  function blockWheel(e) { e.preventDefault(); }
+  function blockTouch(e) { if (onStage(e.target)) return; e.preventDefault(); }
+  function blockKeys(e) {
+    if (['ArrowUp','ArrowDown','PageUp','PageDown','Home','End',' '].indexOf(e.key) === -1) return;
+    e.preventDefault();
+  }
+  function lockScroll() {
+    window.addEventListener('wheel', blockWheel, { passive: false });
+    window.addEventListener('touchmove', blockTouch, { passive: false });
+    window.addEventListener('keydown', blockKeys, { passive: false });
+  }
+  function unlockScroll() {
+    window.removeEventListener('wheel', blockWheel, { passive: false });
+    window.removeEventListener('touchmove', blockTouch, { passive: false });
+    window.removeEventListener('keydown', blockKeys, { passive: false });
+  }
+
+  // build cards: Vimeo thumbnail (direct image, no fetch/CORS) + play overlay
+  cards.forEach((card, i) => {
+    const img = document.createElement('img');
+    img.className = 'vthumb'; img.alt = ''; img.loading = 'lazy';
+    img.src = 'https://vumbnail.com/' + ids[i] + '.jpg';
+    img.addEventListener('error', () => img.remove());   // fall back to the gradient
+    card.insertBefore(img, card.firstChild);
+    card.insertAdjacentHTML('beforeend', PLAY);
+    card.addEventListener('click', () => openAt(i));
+  });
+
+  function mountFrame(id) {
+    stage.innerHTML = '<iframe src="https://player.vimeo.com/video/' + id +
+      '?autoplay=1&title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+  }
+
+  function openAt(i) {
+    idx = i;
+    mountFrame(ids[idx]);
+    lb.classList.add('open');
+    lb.setAttribute('aria-hidden', 'false');
+    lockScroll();
+    // centre entrance: scale + fade up from the middle
+    stage.style.transition = 'none';
+    stage.style.transformOrigin = 'center center';
+    stage.style.transform = 'scale(.84)';
+    stage.style.opacity = '0';
+    void stage.offsetWidth;
+    lb.classList.add('show');
+    stage.style.transition = 'transform .4s cubic-bezier(.22,.61,.36,1), opacity .3s ease';
+    stage.style.transform = 'none';
+    stage.style.opacity = '1';
+  }
+
+  // swap to prev/next with a quick fade
+  function nav(dir) {
+    if (!lb.classList.contains('open') || closing) return;
+    idx = (idx + dir + ids.length) % ids.length;
+    stage.style.transition = 'opacity .15s ease, transform .15s ease';
+    stage.style.opacity = '0';
+    stage.style.transform = 'scale(.96)';
+    setTimeout(() => {
+      mountFrame(ids[idx]);
+      stage.style.transition = 'transform .34s cubic-bezier(.22,.61,.36,1), opacity .26s ease';
+      stage.style.opacity = '1';
+      stage.style.transform = 'none';
+    }, 150);
+  }
+
+  function close() {
+    if (closing || !lb.classList.contains('open')) return;
+    closing = true;
+    lb.classList.remove('show');
+    stage.style.transition = 'transform .26s ease, opacity .26s ease';
+    stage.style.transform = 'scale(.9)';
+    stage.style.opacity = '0';
+    setTimeout(() => {
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
+      unlockScroll();
+      stage.innerHTML = '';                  // stop Vimeo playback
+      stage.style.transition = 'none';
+      stage.style.transform = 'none';
+      stage.style.opacity = '';
+      closing = false;
+    }, 280);
+  }
+
+  lbX.addEventListener('click', close);
+  if (lbPrev) lbPrev.addEventListener('click', e => { e.stopPropagation(); nav(-1); });
+  if (lbNext) lbNext.addEventListener('click', e => { e.stopPropagation(); nav(1); });
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') nav(-1);
+    else if (e.key === 'ArrowRight') nav(1);
   });
 })();
 
@@ -1713,7 +2058,6 @@ function scrollToContacts() {
   }
 })();
 </script>
-<div class="wbar" id="wbar"><div class="wbar-fill" id="wbarFill"></div></div>
 
 </body>
 </html>
