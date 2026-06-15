@@ -896,7 +896,7 @@ let userOrders = JSON.parse(localStorage.getItem('userOrders')) || [];
 
 function formatMoney(v){return '$'+v.toLocaleString(undefined,{minimumFractionDigits:0,maximumFractionDigits:2})}
 function formatLimit(v){return '$'+v.toLocaleString()}
-function formatAge(months){const y=Math.floor(months/12),m=months%12;return `${y} ${y===1?'year':'years'} ${m} ${m===1?'month':'months'}`}
+function formatAge(months){const y=Math.floor(months/12);return `${y} ${y===1?'year':'years'}`}
 
 function registerUser(userData) {
   if (users.find(user => user.email === userData.email)) {
@@ -1244,6 +1244,15 @@ function loadFilterState(){
   syncFilters('priceSelect','mobilePriceSelect');
   syncFilters('postingInput','mobilePostingInput');
   render(filterData());
+}
+
+function resetAllFilters(){
+  const ids=['lenderSelect','limitSelect','statementSelect','ageSelect','priceSelect','postingInput',
+             'mobileLenderSelect','mobileLimitSelect','mobileStatementSelect','mobileAgeSelect','mobilePriceSelect','mobilePostingInput'];
+  ids.forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  localStorage.removeItem('tradelineFilters');
+  sortState={key:null,asc:true};
+  render(rows);
 }
 
 function showLoading(){
