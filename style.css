@@ -66,17 +66,22 @@ html,body{
 }
 
 html{
-  /* bottom rubber-band / overscroll matches the footer instead of flashing white */
+  /* navy sits ONLY behind the page (overscroll / below the footer), so any
+     rubber-band or sub-pixel gap shows navy — never white. The page itself
+     stays light (see body). overscroll-behavior:none also kills the bounce. */
   background: #173f5b;
+  overscroll-behavior: none;
 }
 
 body{
-  /* navy frame (matches header/footer) so there is never a white strip below
-     the footer or in the mobile overscroll/rubber-band area */
-  background: #173f5b;
+  /* light page background, like the original look */
+  background: var(--bg-solid);
+  background-image:
+    radial-gradient(at 0% 0%, rgba(102, 126, 234, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(118, 75, 162, 0.05) 0px, transparent 50%);
   display: flex;
   flex-direction: column;
-  overscroll-behavior-y: none;
+  overscroll-behavior: none;
   overflow-x: hidden;
 }
 
@@ -1653,8 +1658,16 @@ th .export-btn{
 
 @media (max-width:768px){
   .container{
-    padding:0 4px;
-    margin:12px auto;
+    padding:0;
+    margin:0 auto;
+  }
+
+  /* full-bleed cards on phones: flush to the screen edges, no rounded
+     corners poking at the edge, no side borders */
+  .brand, .card{
+    border-radius:0;
+    border-left:none;
+    border-right:none;
   }
 
   .brand{
@@ -1662,7 +1675,7 @@ th .export-btn{
     align-items:center;
     justify-content:flex-start;
     gap:12px;
-    margin-bottom:16px;
+    margin-bottom:8px;
     padding: 14px 18px;
   }
 
@@ -1980,8 +1993,8 @@ th .export-btn{
 
 @media (max-width:480px){
   .container{
-    padding:0 3px;
-    margin:10px auto;
+    padding:0;
+    margin:0 auto;
   }
 
   .brand{
