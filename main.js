@@ -1246,15 +1246,6 @@ function loadFilterState(){
   render(filterData());
 }
 
-function resetAllFilters(){
-  const ids=['lenderSelect','limitSelect','statementSelect','ageSelect','priceSelect','postingInput',
-             'mobileLenderSelect','mobileLimitSelect','mobileStatementSelect','mobileAgeSelect','mobilePriceSelect','mobilePostingInput'];
-  ids.forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-  localStorage.removeItem('tradelineFilters');
-  sortState={key:null,asc:true};
-  render(rows);
-}
-
 function showLoading(){
   document.getElementById('loadingOverlay').classList.add('active');
 }

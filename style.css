@@ -26,12 +26,6 @@
   -webkit-touch-callout: none;
 }
 
-/* Disable all transitions until the page has loaded, so the initial render
-   (and the JS-built mobile cards) doesn't visibly animate/"compress" on open. */
-html.preload *{
-  transition:none !important;
-}
-
 *:focus{
   outline:none;
 }
@@ -59,32 +53,31 @@ input::selection, textarea::selection, [contenteditable]::selection{
 html,body{
   margin:0;
   padding:0;
-  color:var(--text);
-  font:16px/1.6 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  min-height: 100vh;
-  min-height: 100dvh; /* dynamic viewport: no white gap below footer when the mobile address bar collapses */
-}
-
-html{
-  /* navy sits ONLY behind the page (overscroll / below the footer), so any
-     rubber-band or sub-pixel gap shows navy — never white. The page itself
-     stays light (see body). overscroll-behavior:none also kills the bounce. */
-  background: #173f5b;
-  overscroll-behavior: none;
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-body{
-  /* light page background, like the original look */
   background: var(--bg-solid);
   background-image:
     radial-gradient(at 0% 0%, rgba(102, 126, 234, 0.05) 0px, transparent 50%),
     radial-gradient(at 100% 100%, rgba(118, 75, 162, 0.05) 0px, transparent 50%);
+  color:var(--text);
+  font:16px/1.6 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  min-height: 100vh;
+}
+
+/* dark background behind the page so any overscroll below the footer is not white */
+html{
+  background: #173f5b;
+}
+
+body{
   display: flex;
   flex-direction: column;
-  overscroll-behavior: none;
-  overflow-x: hidden;
+}
+
+.container{
+  flex: 1 0 auto;
+}
+
+.contact-footer{
+  flex-shrink: 0;
 }
 
 .contact-header{
@@ -97,7 +90,7 @@ body{
   background: #173f5b;
   padding: 12px 0;
   text-align: center;
-  margin-top: auto;
+  margin-top: 32px;
 }
 
 .contact-info{
@@ -129,7 +122,7 @@ body{
 .brand{
   display:flex;
   align-items:center;
-  justify-content:flex-start;
+  justify-content:space-between;
   margin-bottom:32px;
   padding:20px 32px;
   background: var(--card);
@@ -141,16 +134,13 @@ body{
 .brand-left{
   display:flex;
   align-items:center;
-  justify-content:flex-start;
   gap:16px;
 }
 
 .brand-logo{
-  height:72px;
+  height:64px;
   width:auto;
-  max-width:100%;
   object-fit:contain;
-  border-radius:12px;
   display:block;
   pointer-events:none;
   user-select:none;
@@ -400,19 +390,16 @@ select{
   background: rgba(255,255,255,0.3);
   transform: translate(-50%, -50%);
   transition: width 0.15s linear, height 0.15s linear;
-  pointer-events: none;
 }
 
-@media (hover: hover) and (pointer: fine){
-  .btn:hover::before{
-    width: 500px;
-    height: 500px;
-  }
+.btn:hover::before{
+  width: 500px;
+  height: 500px;
+}
 
-  .btn:hover{
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-  }
+.btn:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 .btn:active{
@@ -1123,12 +1110,10 @@ th.sortable .arrow{
   transition: all 0.1s linear;
 }
 
-@media (hover: hover) and (pointer: fine){
-  .mobile-card:hover{
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-2px);
-    border-color: var(--accent-solid);
-  }
+.mobile-card:hover{
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: var(--accent-solid);
 }
 
 .mobile-card-header{
@@ -1660,33 +1645,26 @@ th .export-btn{
 
 @media (max-width:768px){
   .container{
-    padding:0 8px;
-    margin:0;
-    width:100%;
-    max-width:100%;
+    padding:0 12px;
+    margin:16px auto;
   }
-
-  /* small side gap on phones: keep cards rounded with a full border */
-  .brand, .card{
-    border-radius:16px;
-  }
-
+  
   .brand{
-    flex-direction:row;
-    align-items:center;
+    flex-direction:column;
+    align-items:stretch;
     justify-content:flex-start;
     gap:12px;
-    margin-bottom:8px;
-    padding: 14px 18px;
+    margin-bottom:20px;
+    padding: 16px 20px;
   }
-
+  
   .brand-left{
-    width:auto;
+    width:100%;
     flex:0 0 auto;
     display:flex;
     align-items:center;
     gap:10px;
-    justify-content:flex-start;
+    justify-content:center;
   }
 
   .brand-logo{
@@ -1839,25 +1817,20 @@ th .export-btn{
   
   .mobile-filters{
     display:block;
-    padding:10px;
+    padding:20px;
   }
-
+  
   .mobile-filter-group{
     margin-bottom:16px;
   }
-
+  
   .mobile-filter-reset{
     margin-top:12px;
   }
-
+  
   .mobile-cards{
     display:block;
-    padding:8px;
-  }
-
-  .mobile-card{
-    padding:16px;
-    margin-bottom:10px;
+    padding:20px;
   }
   
   thead{
@@ -1999,28 +1972,26 @@ th .export-btn{
 
 @media (max-width:480px){
   .container{
-    padding:0 8px;
-    margin:0;
-    width:100%;
-    max-width:100%;
+    padding:0 12px;
+    margin:12px auto;
   }
-
+  
   .brand{
-    flex-direction:row;
-    align-items:center;
+    flex-direction:column;
+    align-items:stretch;
     justify-content:flex-start;
     gap:10px;
-    margin-bottom:12px;
+    margin-bottom:16px;
     padding: 12px 16px;
   }
-
+  
   .brand-left{
-    width:auto;
+    width:100%;
     flex:0 0 auto;
     display:flex;
     align-items:center;
     gap:8px;
-    justify-content:flex-start;
+    justify-content:center;
   }
 
   .brand-logo{
@@ -2164,12 +2135,12 @@ th .export-btn{
   }
   
   .mobile-cards{
-    padding:8px;
+    padding:16px;
   }
-
+  
   .mobile-card{
-    padding:14px;
-    margin-bottom:10px;
+    padding:16px;
+    margin-bottom:12px;
   }
   
   .mobile-card-title{
