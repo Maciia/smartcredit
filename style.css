@@ -26,6 +26,12 @@
   -webkit-touch-callout: none;
 }
 
+/* Disable all transitions until the page has loaded, so the initial render
+   (and the JS-built mobile cards) doesn't visibly animate/"compress" on open. */
+html.preload *{
+  transition:none !important;
+}
+
 *:focus{
   outline:none;
 }
@@ -65,10 +71,9 @@ html{
 }
 
 body{
-  background: var(--bg-solid);
-  background-image:
-    radial-gradient(at 0% 0%, rgba(102, 126, 234, 0.05) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(118, 75, 162, 0.05) 0px, transparent 50%);
+  /* navy frame (matches header/footer) so there is never a white strip below
+     the footer or in the mobile overscroll/rubber-band area */
+  background: #173f5b;
   display: flex;
   flex-direction: column;
   overscroll-behavior-y: none;
