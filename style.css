@@ -1660,18 +1660,15 @@ th .export-btn{
 
 @media (max-width:768px){
   .container{
-    padding:0;
+    padding:0 8px;
     margin:0;
     width:100%;
     max-width:100%;
   }
 
-  /* full-bleed cards on phones: flush to the screen edges, no rounded
-     corners poking at the edge, no side borders */
+  /* small side gap on phones: keep cards rounded with a full border */
   .brand, .card{
-    border-radius:0;
-    border-left:none;
-    border-right:none;
+    border-radius:16px;
   }
 
   .brand{
@@ -2002,7 +1999,7 @@ th .export-btn{
 
 @media (max-width:480px){
   .container{
-    padding:0;
+    padding:0 8px;
     margin:0;
     width:100%;
     max-width:100%;
