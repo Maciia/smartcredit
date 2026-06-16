@@ -71,6 +71,8 @@ html{
      stays light (see body). overscroll-behavior:none also kills the bounce. */
   background: #173f5b;
   overscroll-behavior: none;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body{
@@ -1851,12 +1853,15 @@ th .export-btn{
 
   .mobile-cards{
     display:block;
-    padding:8px;
+    padding:8px 0;
   }
 
   .mobile-card{
     padding:16px;
-    margin-bottom:10px;
+    margin-bottom:8px;
+    border-radius:0;
+    border-left:none;
+    border-right:none;
   }
   
   thead{
@@ -2161,12 +2166,15 @@ th .export-btn{
   }
   
   .mobile-cards{
-    padding:8px;
+    padding:8px 0;
   }
 
   .mobile-card{
     padding:14px;
-    margin-bottom:10px;
+    margin-bottom:8px;
+    border-radius:0;
+    border-left:none;
+    border-right:none;
   }
   
   .mobile-card-title{
