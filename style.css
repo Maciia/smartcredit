@@ -1645,7 +1645,7 @@ th .export-btn{
 
 @media (max-width:768px){
   .container{
-    padding:0 12px;
+    padding:0 6px;
     margin:16px auto;
   }
   
@@ -1817,7 +1817,7 @@ th .export-btn{
   
   .mobile-filters{
     display:block;
-    padding:20px;
+    padding:14px 10px;
   }
   
   .mobile-filter-group{
@@ -1830,7 +1830,7 @@ th .export-btn{
   
   .mobile-cards{
     display:block;
-    padding:20px;
+    padding:14px 10px;
   }
   
   thead{
@@ -1972,7 +1972,7 @@ th .export-btn{
 
 @media (max-width:480px){
   .container{
-    padding:0 12px;
+    padding:0 6px;
     margin:12px auto;
   }
   
