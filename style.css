@@ -1838,20 +1838,25 @@ th .export-btn{
   
   .mobile-filters{
     display:block;
-    padding:20px;
+    padding:10px;
   }
-  
+
   .mobile-filter-group{
     margin-bottom:16px;
   }
-  
+
   .mobile-filter-reset{
     margin-top:12px;
   }
-  
+
   .mobile-cards{
     display:block;
-    padding:20px;
+    padding:8px;
+  }
+
+  .mobile-card{
+    padding:16px;
+    margin-bottom:10px;
   }
   
   thead{
@@ -2156,12 +2161,12 @@ th .export-btn{
   }
   
   .mobile-cards{
-    padding:16px;
+    padding:8px;
   }
-  
+
   .mobile-card{
-    padding:16px;
-    margin-bottom:12px;
+    padding:14px;
+    margin-bottom:10px;
   }
   
   .mobile-card-title{
