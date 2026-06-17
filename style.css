@@ -1063,7 +1063,7 @@ th.sortable .arrow{
 
 .mobile-filters{
   display:none;
-  padding:14px 10px;
+  padding:14px 4px;
   background:linear-gradient(to bottom, var(--accent-50), #ffffff);
   border-bottom:2px solid var(--border);
 }
@@ -1098,7 +1098,7 @@ th.sortable .arrow{
 
 .mobile-cards{
   display:none;
-  padding: 14px 10px;
+  padding: 14px 4px;
 }
 
 .mobile-card{
@@ -1646,7 +1646,7 @@ th .export-btn{
 
 @media (max-width:768px){
   .container{
-    padding:0 6px;
+    padding:0 3px;
     margin:16px auto;
   }
   
@@ -1656,7 +1656,7 @@ th .export-btn{
     justify-content:flex-start;
     gap:12px;
     margin-bottom:20px;
-    padding: 16px 12px;
+    padding: 16px 8px;
   }
   
   .brand-left{
@@ -1973,7 +1973,7 @@ th .export-btn{
 
 @media (max-width:480px){
   .container{
-    padding:0 4px;
+    padding:0 2px;
     margin:12px auto;
   }
 
@@ -1983,7 +1983,7 @@ th .export-btn{
     justify-content:flex-start;
     gap:10px;
     margin-bottom:16px;
-    padding: 12px 10px;
+    padding: 12px 8px;
   }
   
   .brand-left{
@@ -2136,7 +2136,7 @@ th .export-btn{
   }
   
   .mobile-cards{
-    padding:10px 6px;
+    padding:10px 3px;
   }
 
   .mobile-card{
