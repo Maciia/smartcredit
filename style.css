@@ -1818,7 +1818,7 @@ th .export-btn{
   
   .mobile-filters{
     display:block;
-    padding:20px;
+    padding:16px 4px;
   }
   
   .mobile-filter-group{
@@ -1831,7 +1831,7 @@ th .export-btn{
   
   .mobile-cards{
     display:block;
-    padding:20px;
+    padding:16px 4px;
   }
   
   thead{
